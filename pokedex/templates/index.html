@@ -10,14 +10,24 @@
                 <h1>Mi Pokedex</h1>
             </div>
             <p class="p-2">Hola, este es tu primer sitio en Django</p>
+            <h3>Lista de Pokemons</h3>
             <ul class="list-group">
                 {% for pokemon in pokemons %}
                 <li class="list-group-item">
                     <a href="{{pokemon.pk}}">{{ pokemon | capfirst }}</a>
-
+                    <div> {{pokemon.weight}} kg </div>
                 </li>
                 {% endfor %}
             </ul>
+
+            <h3>Lista de Entrenadores</h3>
+            <ul class="list-group">
+                {% for trainers in trainers %}
+                <li class="list-group-item">
+                    <a href="trainer/{{trainers.pk}}">{{ trainers | capfirst }}</a>
+                    <div>nivel {{trainers.level}} </div>
+                </li>
+                {% endfor %}
         </div>
     </body>
 </html>
