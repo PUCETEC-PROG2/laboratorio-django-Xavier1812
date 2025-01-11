@@ -11,10 +11,19 @@ class Trainer(models.Model):
 
 class Pokemon(models.Model):
     name = models.CharField(max_length=30, null=False) #Para VARCHAR
-    type = models.CharField(max_length=30, null=False)
-    weight = models.DecimalField(max_digits=6, decimal_places=4)
-    height = models.DecimalField(max_digits=7, decimal_places=4)
+    POKEMON_TYPES = [
+        ('A', 'Agua'),
+        ('F', 'Fuego'),
+        ('T', 'Tierra'),
+        ('P', 'Planta'),
+        ('E', 'Electrico'),
+        ('D', 'Dragon'),
+    ]
+    type = models.CharField(max_length=30, null=False, choices=POKEMON_TYPES)
+    weight = models.DecimalField(max_digits=6, decimal_places=2)
+    height = models.DecimalField(max_digits=7, decimal_places=2)
+    trainer = models.ForeignKey(Trainer, on_delete=models.SET_NULL, null=True)
+    picture = models.ImageField(upload_to='pokemon_images')
     
     def __str__(self):
         return self.name
-
