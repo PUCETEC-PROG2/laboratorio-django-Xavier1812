@@ -6,9 +6,8 @@ from pokedex.forms import PokemonForm
 
 def index(request):
     pokemons = Pokemon.objects.all()
-    trainers = Trainer.objects.all()
     template = loader.get_template('index.html')
-    return HttpResponse(template.render({'pokemons': pokemons, 'trainers': trainers}, request))
+    return HttpResponse(template.render({'pokemons': pokemons}, request))
 
 def pokemon(request, pokemon_id):
     pokemon = Pokemon.objects.get(id = pokemon_id)
@@ -25,6 +24,12 @@ def trainer(request, trainer_id):
         'trainer': trainer
     }
     return HttpResponse(template.render(context, request))
+
+def trainers(request, trainer_id):
+    trainers = Trainer.objects.all()
+    template = loader.get_template('trainers.html')
+    return HttpResponse(template.render({'trainers': trainers}, request))
+
 
 def add_pokemon(request):
     if request.method == 'POST':

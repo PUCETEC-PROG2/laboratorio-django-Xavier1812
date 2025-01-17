@@ -22,12 +22,4 @@
       
         {% endfor %}
         </div>
-    <h3>Lista de Entrenadores</h3>
-    <ul class="list-group">
-        {% for trainers in trainers %}
-        <li class="list-group-item">
-            <a href="trainer/{{trainers.pk}}">{{ trainers | capfirst }}</a>
-        </li>
-        {% endfor %}
-    </ul>
 {% endblock content %}
