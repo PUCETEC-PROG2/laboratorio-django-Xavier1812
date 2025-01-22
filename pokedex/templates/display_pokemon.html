@@ -5,7 +5,7 @@
     <p><strong>Detalles</strong></p>
         <ul>
             <li>Nombre: {{ pokemon.name }} </li>
-            <li>Tipo: {{ pokemon.type }} </li>
+            <li>Tipo: {{ pokemon.get_type_display }} </li>
             <li>Peso: {{ pokemon.weight }} kg. </li>
             <li>Altura: {{ pokemon.height }} cm. </li>
             <li>Entrenador: {{pokemon.trainer}}</li>
