@@ -3,7 +3,22 @@
 {% block content %}
 <h3><strong>{{ trainer | capfirst }}</strong></h3>
 <p><strong>Detalles del Entrenador</strong></p>
-<ul>
-    <li>Nivel: {{ trainer.level }} </li>
-    <li>Fecha de Nacimiento: {{ trainer.birth_date }} </li>
+   
+<div class="card mb-3" style="max-width: 900px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ trainer.picture.url }}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <p class="card-text">Nombre: {{trainer.first_name}}</p>
+          <p class="card-text">Apellido: {{trainer.last_name}}</p>
+          <p class="card-text">Nivel: {{trainer.level}}</p>
+          <p class="card-text">Edad: {{trainer.age}}</p>
+          <p class="card-text">Fecha de Nacimiento: {{trainer.birth_date}}</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
